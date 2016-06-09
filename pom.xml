@@ -8,7 +8,7 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Github Parent Package</name>
-    <description>parent package for jjYBdx4IL's projects</description>
+    <description>parent package for jjYBdx4IL projects</description>
     <url>https://github.com/jjYBdx4IL</url>
     <inceptionYear>2016</inceptionYear>
 
@@ -51,10 +51,10 @@
         </developer>
     </developers>
     
-    <ciManagement>
-        <system>Github Issues</system>
+    <issueManagement>
+        <system>GitHub Issues</system>
         <url>https://github.com/jjYBdx4IL/github-parent/issues</url>
-    </ciManagement>
+    </issueManagement>
     
     <scm>
         <connection>scm:git:git://github.com/jjYBdx4IL/github-parent.git</connection>
