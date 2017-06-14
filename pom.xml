@@ -1,6 +1,6 @@
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.jjYBdx4IL</groupId>
@@ -19,20 +19,20 @@
         <maven.compiler.plugin.encoding>${default.encoding}</maven.compiler.plugin.encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
-        
-        <jetty.version>9.4.5.v20170502</jetty.version>
+
+        <jetty.version>9.4.6.v20170531</jetty.version>
         <jna.version>4.4.0</jna.version>
     </properties>
-    
+
     <prerequisites>
         <maven>3.1.1</maven>
     </prerequisites>
-    
+
     <organization>
         <name>Github jjYBdx4IL Projects</name>
         <url>https://github.com/jjYBdx4IL</url>
     </organization>
-    
+
     <licenses>
         <license>
             <name>The Apache Software License, Version 2.0</name>
@@ -40,7 +40,7 @@
             <distribution>repo</distribution>
         </license>
     </licenses>
-    
+
     <developers>
         <developer>
             <id>jjYBdx4IL</id>
@@ -51,19 +51,19 @@
             <url>https://github.com/jjYBdx4IL</url>
         </developer>
     </developers>
-    
+
     <issueManagement>
         <system>GitHub Issues</system>
         <url>https://github.com/jjYBdx4IL/github-parent/issues</url>
     </issueManagement>
-    
+
     <scm>
         <connection>scm:git:git://github.com/jjYBdx4IL/github-parent.git</connection>
         <developerConnection>scm:git:ssh://git@github.com/jjYBdx4IL/github-parent.git</developerConnection>
         <url>https://github.com/jjYBdx4IL/github-parent</url>
         <tag>HEAD</tag>
     </scm>
-    
+
     <distributionManagement>
         <repository>
             <id>oss.sonatype.org</id>
@@ -110,7 +110,7 @@
                         </executions>
                         <configuration>
                             <keyname>jjYBdx4IL@github.com</keyname>
-                        </configuration>                    
+                        </configuration>
                     </plugin>
                 </plugins>
             </build>
@@ -126,6 +126,16 @@
                     <execution>
                         <id>check-headers</id>
                         <phase>verify</phase>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-checkstyle-plugin</artifactId>
+                <executions>
+                    <execution>
                         <goals>
                             <goal>check</goal>
                         </goals>
@@ -176,13 +186,13 @@
                 <artifactId>nexus-staging-maven-plugin</artifactId>
             </plugin>
         </plugins>
-        
+
         <pluginManagement>
             <plugins>
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
-                    <version>2.11</version>
+                    <version>3.0</version>
                     <executions>
                         <execution>
                             <id>check-headers</id>
@@ -216,17 +226,17 @@
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>appassembler-maven-plugin</artifactId>
-                    <version>1.10</version>
+                    <version>2.0.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>build-helper-maven-plugin</artifactId>
-                    <version>1.10</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>exec-maven-plugin</artifactId>
-                    <version>1.5.0</version>
+                    <version>1.6.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
@@ -235,15 +245,27 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.6</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-checkstyle-plugin</artifactId>
                     <version>2.17</version>
+                    <configuration>
+                        <logViolationsToConsole>true</logViolationsToConsole>
+                        <failOnViolation>true</failOnViolation>
+                        <configLocation>checkstyle.xml</configLocation>
+                    </configuration>
+                    <dependencies>
+                        <dependency>
+                            <groupId>com.github.jjYBdx4IL.misc</groupId>
+                            <artifactId>checkstyle-configurations</artifactId>
+                            <version>1.0-SNAPSHOT</version>
+                        </dependency>
+                    </dependencies>
                 </plugin>
                 <plugin>
                     <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.5.1</version>
+                    <version>3.6.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-clean-plugin</artifactId>
@@ -251,7 +273,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.10</version>
+                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-deploy-plugin</artifactId>
@@ -281,7 +303,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-failsafe-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>2.20</version>
                     <executions>
                         <execution>
                             <goals>
@@ -304,7 +326,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-jar-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.2</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-jarsigner-plugin</artifactId>
@@ -312,11 +334,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.3</version>
-                    <configuration>
-                        <failOnError>false</failOnError>
-                        <additionalparam>-Xdoclint:none</additionalparam>
-                    </configuration>
+                    <version>2.10.4</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jvnet.jaxb2.maven2</groupId>
@@ -331,7 +349,7 @@
                 <plugin>
                     <groupId>org.bsc.maven</groupId>
                     <artifactId>maven-processor-plugin</artifactId>
-                    <version>3.1.0</version>
+                    <version>3.3.1</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-project-info-reports-plugin</artifactId>
@@ -340,18 +358,20 @@
                 <plugin>
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
-                    <goals>deploy nexus-staging:release</goals>
+                    <goals>
+                        deploy nexus-staging:release
+                    </goals>
                     <configuration>
                         <tagNameFormat>@{project.version}</tagNameFormat>
                     </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-resources-plugin</artifactId>
-                    <version>3.0.0</version>
+                    <version>3.0.2</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-shade-plugin</artifactId>
-                    <version>2.4.3</version>
+                    <version>3.0.0</version>
                 </plugin>
                 <plugin>
                     <artifactId>maven-site-plugin</artifactId>
@@ -363,14 +383,14 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.19.1</version>
+                    <version>2.20</version>
                     <configuration>
                         <runOrder>random</runOrder> <!-- use random to make tests more thorough -->
                     </configuration>
                 </plugin>
                 <plugin>
                     <artifactId>maven-war-plugin</artifactId>
-                    <version>2.6</version>
+                    <version>3.1.0</version>
                 </plugin>
                 <plugin>
                     <groupId>org.sonatype.plugins</groupId>
@@ -382,7 +402,7 @@
                         <nexusUrl>https://oss.sonatype.org/</nexusUrl>
                         <autoReleaseAfterClose>true</autoReleaseAfterClose>
                     </configuration>
-                </plugin>            
+                </plugin>
                 <plugin>
                     <groupId>org.codehaus.mojo</groupId>
                     <artifactId>properties-maven-plugin</artifactId>
@@ -408,12 +428,12 @@
             <dependency>
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm</artifactId>
-                <version>5.0.3</version>
+                <version>5.2</version>
             </dependency>
             <dependency>
                 <groupId>org.ow2.asm</groupId>
                 <artifactId>asm-commons</artifactId>
-                <version>5.0.3</version>
+                <version>5.2</version>
             </dependency>
             <dependency>
                 <groupId>org.bouncycastle</groupId>
@@ -559,7 +579,7 @@
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
                 <version>4.12</version>
-            </dependency>            
+            </dependency>
             <dependency>
                 <groupId>org.libvirt</groupId>
                 <artifactId>libvirt</artifactId>
