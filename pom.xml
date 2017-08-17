@@ -22,6 +22,7 @@
 
         <jetty.version>9.4.6.v20170531</jetty.version>
         <jna.version>4.4.0</jna.version>
+        <selenium.version>3.5.1</selenium.version>
     </properties>
 
     <prerequisites>
@@ -359,7 +360,8 @@
                     <artifactId>maven-release-plugin</artifactId>
                     <version>2.5.3</version>
                     <goals>
-                        deploy nexus-staging:release
+                        <goal>deploy</goal>
+                        <goal>nexus-staging:release</goal>
                     </goals>
                     <configuration>
                         <tagNameFormat>@{project.version}</tagNameFormat>
@@ -498,7 +500,7 @@
             <dependency>
                 <groupId>com.google.guava</groupId>
                 <artifactId>guava</artifactId>
-                <version>21.0</version>
+                <version>23.0</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
@@ -593,22 +595,28 @@
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-java</artifactId>
-                <version>3.4.0</version>
+                <version>${selenium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>${selenium.version}</version>
+                <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-api</artifactId>
-                <version>3.4.0</version>
+                <version>${selenium.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-remote-driver</artifactId>
-                <version>3.4.0</version>
+                <version>${selenium.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-server</artifactId>
-                <version>3.4.0</version>
+                <version>${selenium.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.slf4j</groupId>
