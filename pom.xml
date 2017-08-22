@@ -22,7 +22,7 @@
 
         <jetty.version>9.4.6.v20170531</jetty.version>
         <jna.version>4.4.0</jna.version>
-        <selenium.version>3.5.1</selenium.version>
+        <selenium.version>3.5.2</selenium.version>
     </properties>
 
     <prerequisites>
@@ -642,6 +642,11 @@
             <dependency>
                 <groupId>org.seleniumhq.selenium</groupId>
                 <artifactId>selenium-api</artifactId>
+                <version>${selenium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-chrome-driver</artifactId>
                 <version>${selenium.version}</version>
             </dependency>
             <dependency>
