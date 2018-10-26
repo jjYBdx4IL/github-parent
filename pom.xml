@@ -24,10 +24,6 @@
         <selenium.version>3.5.2</selenium.version>
     </properties>
 
-    <prerequisites>
-        <maven>3.1.1</maven>
-    </prerequisites>
-
     <organization>
         <name>Github jjYBdx4IL Projects</name>
         <url>https://github.com/jjYBdx4IL</url>
@@ -120,6 +116,21 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <configuration>
+                    <failBuildOnAnyVulnerability>true</failBuildOnAnyVulnerability>
+                    <skipTestScope>true</skipTestScope>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>com.mycila</groupId>
                 <artifactId>license-maven-plugin</artifactId>
                 <executions>
@@ -189,6 +200,11 @@
 
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.owasp</groupId>
+                    <artifactId>dependency-check-maven</artifactId>
+                    <version>3.3.2</version>
+                </plugin>
                 <plugin>
                     <groupId>com.mycila</groupId>
                     <artifactId>license-maven-plugin</artifactId>
@@ -334,7 +350,7 @@
                 </plugin>
                 <plugin>
                     <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.10.4</version>
+                    <version>3.0.1</version>
                 </plugin>
                 <plugin>
                     <groupId>org.jvnet.jaxb2.maven2</groupId>
